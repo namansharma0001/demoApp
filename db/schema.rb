@@ -31,10 +31,6 @@ ActiveRecord::Schema.define(version: 20190604182323) do
     t.text     "tokens"
     t.datetime "created_at",                                                        null: false
     t.datetime "updated_at",                                                        null: false
-    t.string   "current_sign_in_at"
-    t.string   "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
     t.decimal  "lat",                    precision: 10, scale: 6
     t.decimal  "lng",                    precision: 10, scale: 6
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
