@@ -1,0 +1,109 @@
+
+  <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Sign Up</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form  [formGroup]="signUpGroup" class="example-form">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                <input matInput formControlName="email" type="email" class="form-control" id="email" placeholder="email" required>
+                </mat-form-field>
+                <span *ngIf="signUpGroup.get('email').valid && signUpGroup.get('email').touched" class="badge badge-success">Valid</span>
+                <span *ngIf="signUpGroup.get('email').invalid && signUpGroup.get('email').touched" class="badge badge-danger">Invalid</span>
+              </td>
+            </tr>
+            <tr>
+            <td><mat-form-field class="example-full-width">
+              <input matInput formControlName="password" type="password" class="form-control" id="password" placeholder="Password" required>
+            </mat-form-field></td>
+            <span *ngIf="signUpGroup.get('password').valid && signUpGroup.get('password').touched" class="badge badge-success">Valid</span>
+            <span *ngIf="signUpGroup.get('password').invalid && signUpGroup.get('password').touched" class="badge badge-danger">Invalid</span>
+  
+          </tr>
+          <tr>
+          <td><mat-form-field class="example-full-width">
+              <input matInput formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+            </mat-form-field></td>
+            <span *ngIf="signUpGroup.get('confirmPassword').valid && signUpGroup.get('confirmPassword').touched" class="badge badge-success">Valid</span>
+            <span *ngIf="signUpGroup.get('confirmPassword').invalid && signUpGroup.get('confirmPassword').touched" class="badge badge-danger">Invalid</span>
+          </tr>
+        </table>
+        </form>
+        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+              (dragEnd)="markerDragEnd($event)"></agm-marker>
+          </agm-map>
+         
+          <div>Latitude: {{latitude}}</div>
+          <div>Longitude: {{longitude}}</div>
+
+        <small *ngIf="signUpGroup.hasError('passwordMatch') && signUpGroup.get('password').touched && signUpGroup.get('confirmPassword').touched"
+        id="email-help" class="form-text text-danger">Passwords Don't Match</small>
+ 
+ 
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions>
+        <button  [disabled]="signUpGroup.invalid" mat-raised-button (click)="login()" color="primary">Login</button>
+        <!-- <button  type="submit" class="btn btn-primary">Submit</button> -->
+
+      </mat-card-actions>
+    </mat-card>
+  
+  
+  <!-- <div class="row align-items-center">
+    <div class="col-6 offset-md-3">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Confirm Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span *ngIf="signUpGroup.get('email').valid" class="badge badge-success">Valid</span></td>
+            <td><span *ngIf="signUpGroup.get('password').valid" class="badge badge-success">Valid</span></td>
+            <td><span *ngIf="signUpGroup.get('confirmPassword').valid" class="badge badge-success">Valid</span></td>
+  
+          </tr>
+          <tr>
+            <td><span *ngIf="signUpGroup.get('email').invalid" class="badge badge-danger">Invalid</span></td>
+            <td><span *ngIf="signUpGroup.get('password').invalid" class="badge badge-danger">Invalid</span></td>
+            <td><span *ngIf="signUpGroup.get('confirmPassword').invalid" class="badge badge-danger">Invalid</span></td>
+          </tr>
+          <tr>
+            <td><span *ngIf="signUpGroup.get('email').pristine" class="badge badge-light">Pristine</span></td>
+            <td><span *ngIf="signUpGroup.get('password').pristine" class="badge badge-light">Pristine</span></td>
+            <td><span *ngIf="signUpGroup.get('confirmPassword').pristine" class="badge badge-light">Pristine</span></td>
+          </tr>
+          <tr>
+            <td><span *ngIf="signUpGroup.get('email').dirty" class="badge badge-secondary">Dirty</span></td>
+            <td><span *ngIf="signUpGroup.get('password').dirty" class="badge badge-secondary">Dirty</span></td>
+  
+            <td><span *ngIf="signUpGroup.get('confirmPassword').dirty" class="badge badge-secondary">Dirty</span></td>
+  
+          </tr>
+          <tr>
+            <td><span *ngIf="signUpGroup.get('email').touched" class="badge badge-info">Touched</span></td>
+            <td><span *ngIf="signUpGroup.get('password').touched" class="badge badge-info">Touched</span></td>
+  
+            <td><span *ngIf="signUpGroup.get('confirmPassword').touched" class="badge badge-info">Touched</span></td>
+  
+          </tr>
+          <tr>
+            <td><span *ngIf="signUpGroup.get('email').untouched" class="badge badge-primary">Untouched</span></td>
+            <td><span *ngIf="signUpGroup.get('password').untouched" class="badge badge-primary">Untouched</span></td>
+  
+            <td><span *ngIf="signUpGroup.get('confirmPassword').untouched" class="badge badge-primary">Untouched</span></td>
+  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div> -->
