@@ -32,10 +32,18 @@
           </tr>
         </table>
         </form>
-        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
-              (dragEnd)="markerDragEnd($event)"></agm-marker>
-          </agm-map>
+         <!-- <agm-map  (boundsChange)="boundsChange($event)" (centerChange)="centerChange($event)" (mouseOver)="onMouseOver(something,$event)" [latitude]="latitude" [longitude]="longitude"  (mapReady)="mapReady($event)"> -->
+          
+          
+            <!-- <agm-marker *ngIf="!dir"  (mouseOut)="onMouseOut($event)"[latitude]="latitude" [longitude]="longitude"
+              ></agm-marker> -->
+       
+          <!-- </agm-map> -->
+
+          <agm-map #myMap [latitude]="latitude" [longitude]="longitude" (mapReady)="mapReady($event)">
+              <agm-direction *ngIf="origin && destination" [origin]="origin" [destination]="destination"></agm-direction>
+
+            </agm-map>
          
           <div>Latitude: {{latitude}}</div>
           <div>Longitude: {{longitude}}</div>

@@ -11,6 +11,8 @@ import { LogicComponent } from './logic/logic.component';
 import { HomeComponent } from './home/home.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
+
 
   import {
     MatInputModule,
@@ -83,8 +85,8 @@ import {environment} from "../environments/environment";
     }),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAZ6dyv1rOhdaJzzlrZnuO925iRcr-NMYU',
-      // libraries: ['places']
-    })
+     }),
+      AgmDirectionModule
   ],
   providers: [ AngularTokenModule ],
   bootstrap: [AppComponent]
