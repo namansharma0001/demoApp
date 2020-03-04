@@ -13,7 +13,7 @@ gem 'rails', '~> 5.0.1'
 # Use Puma as the app server
 gem "devise", '~> 4.6.2'
 
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'sqlite3', '~> 1.3.13'
 gem 'devise_token_auth'
 gem 'omniauth'
